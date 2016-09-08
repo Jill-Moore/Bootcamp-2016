@@ -1,0 +1,20 @@
+#Take home assignment: September 8, 2016 
+
+Due by 2pm September 9, 2016, please email to Jill - Jill.Moore@umassmed.edu
+
+Create scatterplot using R for the data in the file Experiment-September.txt with the following specifications:
+
+1)	Dots colored by group: 
+a.	Red for control
+b.	Green for experiment
+
+2)	Label each of the axes
+a.	X axis = Time in seconds
+b.	Y axis = Concentration
+
+3)	Add a title (feel free to name the graph whatever you like)
+
+4)	Change the range of each axis: 
+a.	X axis = 0 to 100
+b.	Y axis = 0 to 500
+
