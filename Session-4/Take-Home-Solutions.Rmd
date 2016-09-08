@@ -1,0 +1,73 @@
+---
+title: "Take-Home-Solutions"
+author: "Jill Moore"
+date: "September 8, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+1. Begin by loading ggplot2 package
+
+```{r }
+library(ggplot2)
+```
+
+2. Read in data. Make sure to include headers.
+```{r}
+experiment1=read.table("~/Dropbox (UMASS MED - BIB)/Bootcamp/exp_design_and_data_analysis_bootcamp_2016/afternoon_session_notes/Day4/Experiment-September.txt", header=T)
+```
+
+
+3. Make basic scatterplot
+
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration))+geom_point()
+```
+
+4. Colors points by group
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()
+```
+
+5. Sets colors to red and green
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()+scale_color_manual(values=c("red", "green"))
+```
+
+6. Adds labels to axes
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()+scale_color_manual(values=c("red", "green"))+xlab("Temperature [C]")+ylab("Concentration")
+```
+
+7. Adds title to graph
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()+scale_color_manual(values=c("red", "green"))+xlab("Temperature [C]")+ylab("Concentration")+ggtitle("Example Graph")
+```
+
+8. Adds title to legend
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()+scale_color_manual(values=c("red", "green"), name="Groups")+xlab("Temperature [C]")+ylab("Concentration")+ggtitle("Example Graph")
+```
+
+9. Change Axis
+
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()+scale_color_manual(values=c("red", "green"), name="Groups")+xlab("Temperature [C]")+ylab("Concentration")+ggtitle("Example Graph")+coord_cartesian(x=c(0,100), y=c(0,150))
+```
+
+or
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()+scale_color_manual(values=c("red", "green"), name="Groups")+xlab("Temperature [C]")+ylab("Concentration")+ggtitle("Example Graph")+scale_x_continuous(limits=c(0,100),expand=c(0,0))+scale_y_continuous(limits=c(0,150),expand=c(0,0))
+```
+
+
+10. Add lines to plot connecting dots
+```{R}
+ggplot(data=experiment1, aes(x=experiment1$Temperature, y=experiment1$Concentration, color=experiment1$Group))+geom_point()+geom_line()+scale_color_manual(values=c("red", "green"), name="Groups")+xlab("Temperature [C]")+ylab("Concentration")+ggtitle("Example Graph")+scale_x_continuous(limits=c(0,100),expand=c(0,0))+scale_y_continuous(limits=c(0,150),expand=c(0,0))
+```
+
